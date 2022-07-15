@@ -75,7 +75,6 @@ main {
 }
 
 .topRowContainer {
-  width: 100%;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -84,7 +83,6 @@ main {
 .topRow {
   height: 200px;
   border-radius: 5px;
-  overflow-x: hidden;
   display: flex;
   gap: 10px;
   transition: transform 0.5s;
@@ -164,10 +162,5 @@ main {
   left: 60px;
   top: 0px;
   transform: matrix(-1, 0, 0, 1, 0, 0);
-}
-.btn:hover {
-  width: 60px;
-  height: 60px;
-  left: 0px;
-  top: 70px;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
