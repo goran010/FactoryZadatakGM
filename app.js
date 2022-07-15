@@ -111,8 +111,8 @@ bottomRow.addEventListener("transitionend", () => {
   }
 });
 plusBtn.addEventListener("mouseenter", () => {
-  document.querySelectorAll(".rightArrow").src = "Assets/arrow-gray-right.png";
+  document.querySelector(".rightArrow").src = "Assets/arrow-gray-right.png";
 });
 plusBtn.addEventListener("mouseleave", () => {
-  document.querySelectorAll(".rightArrow").src = "Assets/arrow-blue-left.png";
+  document.querySelector(".rightArrow").src = "Assets/arrow-blue-left.png";
 });
