@@ -116,3 +116,9 @@ plusBtn.addEventListener("mouseenter", () => {
 plusBtn.addEventListener("mouseleave", () => {
   document.querySelector(".rightArrow").src = "Assets/arrow-blue-left.png";
 });
+minusBtn.addEventListener("mouseenter", () => {
+  document.querySelector(".leftArrow").src = "Assets/arrow-gray-right.png";
+});
+minusBtn.addEventListener("mouseleave", () => {
+  document.querySelector(".leftArrow").src = "Assets/arrow-blue-left.png";
+});
