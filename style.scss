@@ -73,6 +73,7 @@ main {
 	flex-grow: 0;
 	overflow: hidden;
 	flex-shrink: 0;
+	border-radius: 5px;
 }
 
 //topPictures Styles
@@ -80,6 +81,7 @@ main {
 	display: flex;
 	align-items: flex-end;
 	overflow: hidden;
+	border-radius: 5px;
 }
 .topRow {
 	height: 200px;
@@ -99,10 +101,12 @@ main {
 	display: flex;
 	align-items: flex-end;
 	overflow: hidden;
+	border-radius: 5px;
 }
 .bottomContainer {
 	display: flex;
 	justify-content: flex-end;
+	border-radius: 5px;
 }
 .bottomRow {
 	height: 200px;

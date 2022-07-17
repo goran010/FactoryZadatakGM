@@ -1,50 +1,47 @@
 const topRow = document.querySelector(".topRow");
 const bottomRow = document.querySelector(".bottomRow");
 const plusBtn = document.querySelector(".plusBtn");
-
 const minusBtn = document.querySelector(".minusBtn");
-let direction,
-  widthLastTopPicture,
-  widthLastBottomPicture,
-  lastImage,
-  firstImage;
+let direction;
 
-const createRightMargin = (element) => {
-  element.style.marginRight = `${300 - element.offsetWidth}px`;
-};
-const removeRightMargin = (element) => {
-  element.style.marginRight = `0px`;
+const addAnimation = (element) => {
+  element.style.transition = "ease transform 0.5s";
 };
 const removeAnimation = (element) => {
   element.style.transition = "none";
-}
+};
 
+const createRightMargin = (image) => {
+  image.style.marginRight = `${300 - image.offsetWidth}px`;
+};
+const removeRightMargin = (image) => {
+  image.style.marginRight = `0px`;
+};
+
+//adding margin that neutralizes the difference in image width
 createRightMargin(topRow.lastElementChild);
 createRightMargin(bottomRow.lastElementChild);
 
+//adding animation
 setTimeout(() => {
-  bottomRow.style.transition = "ease transform 0.5s";
-});
-setTimeout(() => {
-  topRow.style.transition = "ease transform 0.5s";
-
+  addAnimation(bottomRow);
+  addAnimation(topRow);
 });
 
 //adding event listener on right button
 $(".plusBtn").click(() => {
   //translating top row of pictures to right
   topRowImages = $(".topRow>img");
-  topRow.style.transform =
-    "translate(" +
-    (315 + topRowImages[topRowImages.length - 2].offsetWidth) +
-    "px)";
+  topRow.style.transform = `translate(${
+    315 + topRowImages[topRowImages.length - 2].offsetWidth
+  }px)`;
   //translating bottom row of pictures to right
   bottomRowImages = $(".bottomRow>img");
   bottomRow.style.transform =
     "translate(" +
     (315 + bottomRowImages[bottomRowImages.length - 2].offsetWidth) +
     "px)";
-  //direction of moving
+  //defining the direction of image movement
   direction = "right";
 });
 
@@ -60,7 +57,7 @@ $(".minusBtn").click(() => {
   bottomRow.style.transform = `translate(${
     300 - bottomRowImages[bottomRowImages.length - 1].offsetWidth
   }px)`;
-  //direction of moving, rows
+  //defining the direction of image movement
   direction = "left";
 });
 
@@ -75,7 +72,7 @@ topRow.addEventListener("transitionend", () => {
     topRow.prepend(topRow.lastElementChild);
     topRow.style.transform = "translate(305px)";
     setTimeout(() => {
-      topRow.style.transition = "ease transform 0.5s";
+      addAnimation(topRow);
     });
   }
   //case when direction of moving pictures is to left
@@ -88,7 +85,7 @@ topRow.addEventListener("transitionend", () => {
     topRow.append(topRow.firstElementChild);
     topRow.style.transform = "translate(310px)";
     setTimeout(() => {
-      topRow.style.transition = "ease transform 0.5s";
+      addAnimation(topRow);
     });
   }
 });
@@ -104,20 +101,20 @@ bottomRow.addEventListener("transitionend", () => {
     bottomRow.prepend(bottomRow.lastElementChild);
     bottomRow.style.transform = "translate(305px)";
     setTimeout(() => {
-      bottomRow.style.transition = "ease transform 0.5s";
+      addAnimation(bottomRow);
     });
   }
   //case when direction of moving pictures is left
   else {
     bottomRowImages = $(".bottomRow>img");
-    removeRightMargin( bottomRowImages[ bottomRowImages.length - 1]);
-    removeRightMargin( bottomRowImages[ bottomRowImages.length - 2]);
+    removeRightMargin(bottomRowImages[bottomRowImages.length - 1]);
+    removeRightMargin(bottomRowImages[bottomRowImages.length - 2]);
     createRightMargin(bottomRowImages[0]);
-     removeAnimation(bottomRow);
+    removeAnimation(bottomRow);
     bottomRow.append(bottomRow.firstElementChild);
     bottomRow.style.transform = "translate(310px)";
     setTimeout(() => {
-      bottomRow.style.transition = "ease transform 0.5s";
+      addAnimation(bottomRow);
     });
   }
 });
