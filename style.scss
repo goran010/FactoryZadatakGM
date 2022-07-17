@@ -86,7 +86,8 @@ main {
 	border-radius: 5px;
 	display: flex;
 	gap: 10px;
-	transition: transform 0.5s;
+	transition: none;
+	transform: translate(300px);
 	>img {
 		height: 100%;
 		border-radius: 5px;
@@ -109,7 +110,8 @@ main {
 	border-radius: 5px;
 	display: flex;
 	gap: 10px;
-	transition: ease-in transform 0.5s;
+	transition: none;
+	transform: translate(300px);
 	>img {
 		height: 100%;
 		border-radius: 5px;
@@ -129,7 +131,6 @@ main {
     >button {
 	width: 60px;
 	height: 60px;
-	
 	transform: matrix(-1, 0, 0, 1, 0, 0);
     cursor: pointer;
     }

@@ -1,6 +1,7 @@
 const topRow = document.querySelector(".topRow");
 const bottomRow = document.querySelector(".bottomRow");
 const plusBtn = document.querySelector(".plusBtn");
+
 const minusBtn = document.querySelector(".minusBtn");
 let direction,
   widthLastTopPicture,
@@ -8,20 +9,25 @@ let direction,
   lastImage,
   firstImage;
 
-//initial translate for top and bottom row of pictures
-topRow.style.transition = "none";
-lastImage = topRow.lastElementChild;
-lastImage.style.marginRight = `${300 - lastImage.offsetWidth}px`;
-topRow.style.transform = "translate(300px)";
-setTimeout(() => {
-  topRow.style.transition = "ease transform 0.5s";
-});
-bottomRow.style.transition = "none";
-lastImage = bottomRow.lastElementChild;
-lastImage.style.marginRight = `${300 - lastImage.offsetWidth}px`;
-bottomRow.style.transform = "translate(300px)";
+const createRightMargin = (element) => {
+  element.style.marginRight = `${300 - element.offsetWidth}px`;
+};
+const removeRightMargin = (element) => {
+  element.style.marginRight = `0px`;
+};
+const removeAnimation = (element) => {
+  element.style.transition = "none";
+}
+
+createRightMargin(topRow.lastElementChild);
+createRightMargin(bottomRow.lastElementChild);
+
 setTimeout(() => {
   bottomRow.style.transition = "ease transform 0.5s";
+});
+setTimeout(() => {
+  topRow.style.transition = "ease transform 0.5s";
+
 });
 
 //adding event listener on right button
@@ -58,30 +64,27 @@ $(".minusBtn").click(() => {
   direction = "left";
 });
 
-//top row of pictures, adding listener after tranaslate
+//top row of pictures, adding listener after tranasition
 topRow.addEventListener("transitionend", () => {
-  //case when direction of moving pictures is right
+  //case when direction of moving pictures is to right
   if (direction == "right") {
     topRowImages = $(".topRow>img");
-    //$(".topRow>img").css("marginRight", "0px");
-    lastImage = topRowImages[topRowImages.length - 2];
-    topRowImages[topRowImages.length - 1].style.marginRight = "0px";
-    lastImage.style.marginRight = `${300 - lastImage.offsetWidth}px`;
-    topRow.style.transition = "none";
+    removeRightMargin(topRowImages[topRowImages.length - 1]);
+    createRightMargin(topRowImages[topRowImages.length - 2]);
+    removeAnimation(topRow);
     topRow.prepend(topRow.lastElementChild);
     topRow.style.transform = "translate(305px)";
     setTimeout(() => {
       topRow.style.transition = "ease transform 0.5s";
     });
   }
-  //case when direction of moving pictures is left
+  //case when direction of moving pictures is to left
   else {
     topRowImages = $(".topRow>img");
-    topRowImages[topRowImages.length - 1].style.marginRight = "0px";
-    topRowImages[topRowImages.length - 2].style.marginRight = "0px";
-    firstImage = topRowImages[0];
-    firstImage.style.marginRight = `${300 - firstImage.offsetWidth}px`;
-    topRow.style.transition = "none";
+    removeRightMargin(topRowImages[topRowImages.length - 1]);
+    removeRightMargin(topRowImages[topRowImages.length - 2]);
+    createRightMargin(topRowImages[0]);
+    removeAnimation(topRow);
     topRow.append(topRow.firstElementChild);
     topRow.style.transform = "translate(310px)";
     setTimeout(() => {
@@ -95,10 +98,9 @@ bottomRow.addEventListener("transitionend", () => {
   //case when direction of moving pictures is right
   if (direction == "right") {
     bottomRowImages = $(".bottomRow>img");
-    lastImage = bottomRowImages[bottomRowImages.length - 2];
-    bottomRowImages[bottomRowImages.length - 1].style.marginRight = "0px";
-    lastImage.style.marginRight = `${300 - lastImage.offsetWidth}px`;
-    bottomRow.style.transition = "none";
+    removeRightMargin(bottomRowImages[bottomRowImages.length - 1]);
+    createRightMargin(bottomRowImages[bottomRowImages.length - 2]);
+    removeAnimation(bottomRow);
     bottomRow.prepend(bottomRow.lastElementChild);
     bottomRow.style.transform = "translate(305px)";
     setTimeout(() => {
@@ -108,11 +110,10 @@ bottomRow.addEventListener("transitionend", () => {
   //case when direction of moving pictures is left
   else {
     bottomRowImages = $(".bottomRow>img");
-    bottomRowImages[bottomRowImages.length - 1].style.marginRight = "0px";
-    bottomRowImages[bottomRowImages.length - 2].style.marginRight = "0px";
-    let firstImage = bottomRowImages[0];
-    firstImage.style.marginRight = `${300 - firstImage.offsetWidth}px`;
-    bottomRow.style.transition = "none";
+    removeRightMargin( bottomRowImages[ bottomRowImages.length - 1]);
+    removeRightMargin( bottomRowImages[ bottomRowImages.length - 2]);
+    createRightMargin(bottomRowImages[0]);
+     removeAnimation(bottomRow);
     bottomRow.append(bottomRow.firstElementChild);
     bottomRow.style.transform = "translate(310px)";
     setTimeout(() => {
