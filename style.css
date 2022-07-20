@@ -1,65 +1,90 @@
-@import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap";
+@import "http://fonts.cdnfonts.com/css/helvetica-neue-9";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-header {
-  width: 100%;
-  height: 120px;
-  font-family: "Helvetica Neue", sans-serif;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 2fr;
-}
-header > div:nth-of-type(1) {
-  width: 1fr;
-  height: 100%;
-}
-header > div:nth-of-type(2) {
-  width: 2fr;
-  height: 100%;
+body {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-direction: column;
+}
+
+header {
+  font-weight: 400;
+  display: flex;
+  gap: 20px;
+  width: 940px;
+  height: 100px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+header > div:nth-of-type(1) {
+  width: 300px;
+  height: 100px;
+  background: #dddddd;
+  border-radius: 0px 0px 5px 5px;
+}
+header > div:nth-of-type(2) {
+  width: 620px;
+  height: 100px;
+  left: 320px;
+  background: #dddddd;
+  border-radius: 0px 0px 5px 5px;
 }
 header > div:nth-of-type(2) > span {
+  margin-left: 80px;
+  margin-top: 39px;
+  width: 245px;
+  height: 18px;
   font-size: 15px;
   line-height: 18px;
-  margin-left: 80px;
-  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  color: white;
 }
 
 footer {
-  width: 100%;
-  height: 120px;
+  max-width: 941px;
+  height: 100px;
   font-family: "Helvetica Neue", sans-serif;
 }
 footer > div {
-  height: 100%;
-  width: 100%;
+  width: 941px;
+  height: 100px;
+  background: #dddddd;
+  border-radius: 0px 0px 5px 5px;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+footer > div > span {
+  position: absolute;
+  width: 245px;
+  height: 18px;
+  left: 81px;
+  top: 42px;
+  font-size: 15px;
+  line-height: 18px;
   display: flex;
-  align-items: center;
-  text-align: center;
-  padding-left: 80px;
-  color: #fff;
+  align-items: flex-end;
+  color: white;
+  transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
 main {
-  width: 100vw;
+  width: 940px;
   display: flex;
-  margin: 60px 0px;
   flex-shrink: 0;
-  justify-content: center;
   align-items: center;
 }
 
 .content {
-  width: 100%;
+  width: 940px;
   display: flex;
   gap: 20px;
   flex-shrink: 0;
-  overflow: hidden;
   justify-content: flex-end;
 }
 
@@ -71,12 +96,14 @@ main {
   flex-grow: 0;
   overflow: hidden;
   flex-shrink: 0;
+  border-radius: 5px;
 }
 
 .topRowContainer {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 .topRow {
@@ -85,7 +112,6 @@ main {
   display: flex;
   gap: 10px;
   transition: none;
-  transform: translate(300px);
 }
 .topRow > img {
   height: 100%;
@@ -96,11 +122,13 @@ main {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 .bottomContainer {
   display: flex;
   justify-content: flex-end;
+  border-radius: 5px;
 }
 
 .bottomRow {
@@ -110,7 +138,6 @@ main {
   display: flex;
   gap: 10px;
   transition: none;
-  transform: translate(300px);
 }
 .bottomRow > img {
   height: 100%;
@@ -130,8 +157,35 @@ main {
 .buttons > button {
   width: 60px;
   height: 60px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
   transform: matrix(-1, 0, 0, 1, 0, 0);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttons > button > span {
+  height: 16px;
+  width: 10px;
+}
+.buttons > .minusBtn > span {
+  background-image: url("Assets/arrow-gray-right.png");
+}
+.buttons > .minusBtn:hover {
+  border: 1px solid #134880;
+}
+.buttons > .minusBtn:hover > span {
+  background-image: url("Assets/arrow-blue-right.png");
+}
+.buttons > .plusBtn > span {
+  background-image: url("Assets/arrow-gray-left.png");
+}
+.buttons > .plusBtn:hover {
+  border: 1px solid #134880;
+}
+.buttons > .plusBtn:hover > span {
+  background-image: url("Assets/arrow-blue-left.png");
 }
 
 .sideBar {
@@ -140,9 +194,9 @@ main {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .sideBar > div {
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 18px;
   line-height: 26px;
   display: flex;
@@ -152,7 +206,6 @@ main {
   flex-shrink: 0;
 }
 .sideBar > h1 {
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 32px;
   line-height: 38px;
   display: flex;
