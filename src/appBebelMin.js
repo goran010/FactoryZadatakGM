@@ -4,26 +4,24 @@ var directionToRight,
   plusBtn = $(".plusBtn")[0],
   minusBtn = $(".minusBtn")[0],
   body = $("body")[0],
-  addAnimation = function (a) {
+  addAnimation = function (t) {
     setTimeout(function () {
-      a.style.transition = "ease transform 0.5s";
+      t.style.transition = "ease transform 0.5s";
     });
   },
-  removeAnimation = function (a) {
-    a.style.transition = "none";
+  removeAnimation = function (t) {
+    t.style.transition = "none";
   },
-  createRightMargin = function (a) {
-    a.style.marginRight = "".concat(300 - a.offsetWidth, "px");
+  createRightMargin = function (t) {
+    t.style.marginRight = "".concat(300 - t.offsetWidth, "px");
   },
-  removeRightMargin = function (a) {
-    a.style.marginRight = "0px";
+  removeRightMargin = function (t) {
+    t.style.marginRight = "0px";
   };
 createRightMargin(topRow.lastElementChild),
   createRightMargin(bottomRow.lastElementChild),
-  setTimeout(function () {
-    (topRow.style.transform = "translate(300px)"),
-      (bottomRow.style.transform = "translate(300px)");
-  }),
+  (topRow.style.transform = "translate(300px)"),
+  (bottomRow.style.transform = "translate(300px)"),
   setTimeout(function () {
     addAnimation(bottomRow), addAnimation(topRow);
   }),
@@ -55,17 +53,15 @@ createRightMargin(topRow.lastElementChild),
   }),
   topRow.addEventListener("transitionend", function () {
     directionToRight
-      ? (removeRightMargin(
-          (topRowImages = $(".topRow>img"))[topRowImages.length - 1]
-        ),
+      ? ((topRowImages = $(".topRow>img")),
+        removeRightMargin(topRowImages[topRowImages.length - 1]),
         createRightMargin(topRowImages[topRowImages.length - 2]),
         removeAnimation(topRow),
         topRow.prepend(topRow.lastElementChild),
         (topRow.style.transform = "translate(305px)"),
         addAnimation(topRow))
-      : (removeRightMargin(
-          (topRowImages = $(".topRow>img"))[topRowImages.length - 1]
-        ),
+      : ((topRowImages = $(".topRow>img")),
+        removeRightMargin(topRowImages[topRowImages.length - 1]),
         removeRightMargin(topRowImages[topRowImages.length - 2]),
         createRightMargin(topRowImages[0]),
         removeAnimation(topRow),
@@ -75,17 +71,15 @@ createRightMargin(topRow.lastElementChild),
   }),
   bottomRow.addEventListener("transitionend", function () {
     directionToRight
-      ? (removeRightMargin(
-          (bottomRowImages = $(".bottomRow>img"))[bottomRowImages.length - 1]
-        ),
+      ? ((bottomRowImages = $(".bottomRow>img")),
+        removeRightMargin(bottomRowImages[bottomRowImages.length - 1]),
         createRightMargin(bottomRowImages[bottomRowImages.length - 2]),
         removeAnimation(bottomRow),
         bottomRow.prepend(bottomRow.lastElementChild),
         (bottomRow.style.transform = "translate(305px)"),
         addAnimation(bottomRow))
-      : (removeRightMargin(
-          (bottomRowImages = $(".bottomRow>img"))[bottomRowImages.length - 1]
-        ),
+      : ((bottomRowImages = $(".bottomRow>img")),
+        removeRightMargin(bottomRowImages[bottomRowImages.length - 1]),
         removeRightMargin(bottomRowImages[bottomRowImages.length - 2]),
         createRightMargin(bottomRowImages[0]),
         removeAnimation(bottomRow),
