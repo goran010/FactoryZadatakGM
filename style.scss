@@ -1,8 +1,22 @@
 //fonts
 @import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap";
 
-@import "http://fonts.cdnfonts.com/css/helvetica-neue-9";
+@import url("//db.onlinewebfonts.com/c/9da41c570d5a221cb2486d78769a076d?family=Neue+Helvetica");
 
+@font-face {
+  font-family: "Neue Helvetica";
+  src: url("//db.onlinewebfonts.com/t/9da41c570d5a221cb2486d78769a076d.eot");
+  src: url("//db.onlinewebfonts.com/t/9da41c570d5a221cb2486d78769a076d.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/9da41c570d5a221cb2486d78769a076d.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/9da41c570d5a221cb2486d78769a076d.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/9da41c570d5a221cb2486d78769a076d.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/9da41c570d5a221cb2486d78769a076d.svg#Neue Helvetica")
+      format("svg");
+}
 //variables
 $light-gray: #dddddd;
 $dark-blue: #134880;
@@ -29,10 +43,9 @@ header {
   gap: 20px;
   width: 940px;
   height: 100px;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Neue Helvetica", sans-serif;
 
   > div {
-
     &:nth-of-type(1) {
       width: 300px;
       height: 100px;
@@ -65,7 +78,7 @@ header {
 footer {
   max-width: 941px;
   height: 100px;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Neue Helvetica", sans-serif;
 
   > div {
     width: 941px;
@@ -90,7 +103,6 @@ footer {
   }
 }
 //
-
 
 main {
   width: 940px;
@@ -118,7 +130,6 @@ main {
   border-radius: 5px;
 }
 
-
 //topPictures Styles
 .topRowContainer {
   display: flex;
@@ -140,7 +151,6 @@ main {
   }
 }
 //
-
 
 //bottomPictures Styles
 .bottomRowContainer {
@@ -170,7 +180,6 @@ main {
   }
 }
 //
-
 
 //buttons styling
 .buttons {
@@ -202,7 +211,6 @@ main {
   }
 
   & > .minusBtn {
-
     > span {
       background-image: url("Assets/arrow-gray-right.png");
     }
@@ -217,7 +225,6 @@ main {
   }
 
   & > .plusBtn {
-
     > span {
       background-image: url("Assets/arrow-gray-left.png");
     }
@@ -230,7 +237,6 @@ main {
     }
   }
 }
-
 
 //sideText and title
 .sideBar {
